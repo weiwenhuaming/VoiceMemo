@@ -1,5 +1,5 @@
 # VoiceMemo
 The apps Demo
 
-![image](https://github.com/weiwenhuaming/VoiceMemo/blob/master/sample-01.jpg)
+![sample-01](https://github.com/weiwenhuaming/VoiceMemo/blob/master/sample-01.jpg =359x640)
 
