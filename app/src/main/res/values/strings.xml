@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VoiceMemo</string>
+    <string name="transcribe">录制</string>
+    <string name="speaker_description">播放</string>
 </resources>
