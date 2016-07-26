@@ -203,6 +203,7 @@ public class VoiceView extends View { //in.iheart.voicememo.view.VoiceView
         canvas.save();
         for (int i = 0; i < times; i++) {
             if (i % 4 == 0) {
+                //在时间历史基础上,向后延续时间
                 int temp = mTimeHistory + i / 4;
                 String text = DisplayUtil.getTimeByPosition(temp);
                 canvas.drawText(text, TIME_STEP_WIDTH * i + startOffset, mTimeDialHeight * 4 + height, mTextPaint);
@@ -217,12 +218,15 @@ public class VoiceView extends View { //in.iheart.voicememo.view.VoiceView
      * @param canvas
      */
     private void drawCurrentTimeLine(Canvas canvas) {
+        //起始偏移1.5的TIME_STEP_WIDTH
         float startOffset = TIME_STEP_WIDTH * 1.5F;
         if (mTimeLineMode == MIDDLE_MODE_TIME_LINE) {
             startOffset = mWidth / 2;
             mTimeDialStepOffset += MOVE_STEP_SPEED;
+            //每四个时间刻度就重新绘制
             if (mTimeDialStepOffset >= TIME_STEP_WIDTH * 4) {
                 mTimeDialStepOffset = 0;
+                //记录时间,因为时间是每四个刻度加一秒,所以每次重新绘制时自增
                 mTimeHistory++;
             }
         }
@@ -250,6 +254,7 @@ public class VoiceView extends View { //in.iheart.voicememo.view.VoiceView
      */
     private void drawTimeDial(Canvas canvas) {
         mGrayPaint.setAlpha(200);
+        //起始偏移2.5的TIME_STEP_WIDTH
         float offsetX = -(TIME_STEP_WIDTH * 2.5F + mTimeDialStepOffset);
         int times = (int) (mWidth / TIME_STEP_WIDTH + 10);
         canvas.save();
